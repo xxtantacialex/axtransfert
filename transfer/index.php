@@ -1,9 +1,3 @@
-<?php
-require_once __DIR__ . '/config.php';
-ensureDirectories();
-// Nettoyage opportuniste
-cleanupExpired();
-?><!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="utf-8">
@@ -68,5 +62,3 @@ cleanupExpired();
     <script src="assets/js/app.js"></script>
 </body>
 </html>
-
-
