@@ -1,0 +1,30 @@
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /transfer/
+
+# Lien court /transfer/d/{token}
+RewriteRule ^d/([A-Fa-f0-9]{32})$ download.php?token=$1 [L,QSA]
+
+# Bloque l'accès direct aux fichiers de stockage
+RewriteRule ^storage/ - [F]
+</IfModule>
+
+# Vous pouvez décommenter les lignes ci‑dessous si l'hébergeur l'autorise
+# pour augmenter la taille max d'upload (adapter les valeurs)
+# php_value upload_max_filesize 4096M
+# php_value post_max_size 4096M
+# php_value max_file_uploads 20
+
+
+<Files "download.php">
+<IfModule mod_deflate.c>
+SetEnv no-gzip 1
+</IfModule>
+<IfModule mod_headers.c>
+Header unset Content-Encoding
+</IfModule>
+</Files>
+
+

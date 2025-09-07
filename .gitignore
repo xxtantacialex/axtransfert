@@ -1,0 +1,9 @@
+# macOS
+.DS_Store
+
+# Dossier d'uploads et métadonnées (ne pas versionner)
+transfer/storage/uploads/*
+transfer/storage/meta/*
+
+# Garder les protections
+!transfer/storage/.htaccess
